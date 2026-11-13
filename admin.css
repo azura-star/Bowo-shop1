@@ -1,0 +1,188 @@
+:root {
+  --bg-dark: #060606;
+  --bg-gradient: radial-gradient(circle at top, #1d0909 0%, #060606 65%);
+  --card-bg: #111111;
+  --card-border: rgba(255, 77, 77, 0.25);
+  --gold-main: #ffd700;
+  --gold-bright: #ffea75;
+  --danger-main: #ff4d4d;
+  --text-light: #f8f9fa;
+  --text-muted: #a0a0a0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--bg-dark);
+  background-image: var(--bg-gradient);
+  color: var(--text-light);
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+header {
+  background: linear-gradient(180deg, rgba(45, 0, 0, 0.8) 0%, rgba(6, 6, 6, 0) 100%);
+  border-bottom: 1px solid var(--card-border);
+  text-align: center;
+  padding: 28px 16px 20px 16px;
+  backdrop-filter: blur(10px);
+}
+
+header .logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--danger-main);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(255, 77, 77, 0.3);
+}
+
+header .logo span {
+  color: #fff;
+}
+
+header .subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.card h2 {
+  font-size: 1.05rem;
+  color: var(--gold-main);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Perbaikan Form & Input agar tidak numpuk */
+.form-group {
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100% !important;
+  padding: 12px 14px !important;
+  background-color: #171717 !important;
+  border: 1px solid #333 !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+  font-size: 0.95rem !important;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--danger-main) !important;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.15);
+}
+
+/* Tombol Submit Login */
+.btn-submit {
+  width: 100% !important;
+  padding: 12px !important;
+  background: linear-gradient(135deg, var(--danger-main), #cc0000) !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-size: 0.95rem !important;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 77, 77, 0.25);
+  display: block !important;
+  text-align: center;
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+}
+
+.btn-clear {
+  background-color: rgba(255, 77, 77, 0.15);
+  color: var(--danger-main);
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-logout {
+  background: #181818;
+  color: var(--danger-main);
+  border: 1px solid #333;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Posisi Kotak Login di Tengah Layar HP */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  border-color: rgba(255, 77, 77, 0.4);
+}
+
+.rekap-item {
+  background: linear-gradient(145deg, #141414, #1a1a1a);
+  border: 1px solid #262626;
+  border-left: 4px solid var(--gold-main);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+}
+
+.rekap-item strong {
+  color: var(--gold-main);
+}
+
+.rekap-list {
+  margin: 6px 0;
+  padding-left: 18px;
+  color: var(--text-muted);
+}

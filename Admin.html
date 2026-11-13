@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Panel Restriksi & Kantin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- KOTAK LOGIN ADMIN -->
+  <div id="login-container" class="container login-wrapper">
+    <section class="card login-card">
+      <div class="logo" style="text-align: center; margin-bottom: 8px; color: #ff4d4d; font-size: 1.3rem; font-weight: 800;">
+        <i class="fa-solid fa-lock"></i> RESTRIKSI ADMIN
+      </div>
+      <p style="font-size: 0.8rem; color: #999; text-align: center; margin-bottom: 20px;">Masukkan password penjual untuk mengelola menu & pesanan.</p>
+      
+      <form onsubmit="prosesLogin(event)">
+        <div class="form-group">
+          <label><i class="fa-solid fa-key"></i> Password Admin:</label>
+          <input type="password" id="admin-pass" placeholder="Masukkan password" required>
+        </div>
+        <button type="submit" id="btn-login" class="btn-submit">
+          <i class="fa-solid fa-right-to-bracket"></i> Masuk Dashboard
+        </button>
+      </form>
+
+      <!-- Teks pemberitahuan password salah & durasi hitung mundur -->
+      <p id="login-msg" style="font-size: 0.8rem; color: #ff4d4d; text-align: center; margin-top: 14px; min-height: 24px; font-weight: 600; line-height: 1.3;"></p>
+
+      <div style="margin-top: 20px; text-align: center;">
+        <button onclick="keHalamanPelanggan()" style="background: none; border: none; color: var(--gold-main); font-size: 0.82rem; cursor: pointer; font-weight: 600;">
+          <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu Pelanggan
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- DASHBOARD UTAMA ADMIN (Disembunyikan sebelum login benar) -->
+  <div id="admin-dashboard" style="display: none;">
+    <header>
+      <div class="logo" style="color: #ff4d4d;">
+        <i class="fa-solid fa-shield-halved"></i> Panel <span>Admin </span>
+      </div>
+      <p class="subtitle">Kelola Stok Menu & Rekap Pesanan Masuk</p>
+    </header>
+
+    <main class="container">
+      
+      <div style="text-align: right; margin-bottom: -6px;">
+        <button onclick="logoutAdmin()" class="btn-logout">
+          <i class="fa-solid fa-right-from-bracket"></i> Kunci Panel
+        </button>
+      </div>
+
+      <!-- KELOLA MENU & STOK OTOMATIS -->
+      <section class="card">
+        <h2><i class="fa-solid fa-boxes-stacked"></i> Kelola Stok & Tambah Menu</h2>
+        
+        <form onsubmit="tambahMenuBaru(event)" style="margin-bottom: 16px;">
+          <div class="form-group">
+            <label><i class="fa-solid fa-plus-circle"></i> Tambah Menu Baru:</label>
+            <div style="display: flex; gap: 8px; margin-top: 4px;">
+              <input type="text" id="menu-nama" placeholder="Nama Makanan/Minuman" required style="flex: 2;">
+              <input type="number" id="menu-harga" placeholder="Harga (Rp)" required style="flex: 1;">
+            </div>
+          </div>
+          <button type="submit" class="btn-submit" style="background: linear-gradient(135deg, var(--gold-main), #cca300); color: #000;">
+            <i class="fa-solid fa-circle-plus"></i> Simpan Menu Baru
+          </button>
+        </form>
+
+        <div id="stok-menu-list"></div>
+      </section>
+
+      <!-- REKAP PESANAN MASUK -->
+      <section class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <h2 style="margin-bottom: 0;"><i class="fa-solid fa-list-check"></i> Daftar Pesanan Masuk</h2>
+          <button class="btn-clear" onclick="hapusSemuaPesanan()">Hapus Semua</button>
+        </div>
+        
+        <div id="rekap-container"></div>
+      </section>
+
+      <div style="text-align: center; margin-top: 10px;">
+        <button onclick="keHalamanPelanggan()" class="btn-submit" style="background: transparent; border: 1px solid var(--gold-main); color: var(--gold-main);">
+          <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu Utama Pelanggan
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

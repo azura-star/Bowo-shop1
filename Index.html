@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Order bowo shop Sekolah</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <i class="fa-solid fa-utensils"></i> bowo shop <span>Pre-Order</span>
+    </div>
+    <p class="subtitle">Pesan Hari Ini, Diantar Besok </p>
+  </header>
+
+  <main class="container">
+    
+    <!-- Daftar Menu Makanan -->
+    <section class="card">
+      <h2><i class="fa-solid fa-burger"></i> Pilih Menu Makanan</h2>
+      <div id="menu-list" class="menu-list">
+        <!-- Render otomatis dari Admin -->
+      </div>
+    </section>
+
+    <!-- Ringkasan & Keranjang Belanja -->
+    <section class="card">
+      <h2><i class="fa-solid fa-cart-shopping"></i> Keranjang Pesanan</h2>
+      <ul id="cart-items" class="cart-items">
+        <li class="empty-cart">Keranjang masih kosong.</li>
+      </ul>
+
+      <div class="total-box">
+        <span>Total Bayar Besok:</span>
+        <strong id="total-price">Rp 0</strong>
+      </div>
+
+      <form id="order-form" onsubmit="simpanPesanan(event)">
+        <div class="form-group">
+          <label><i class="fa-solid fa-user"></i> Nama Lengkap:</label>
+          <input type="text" id="nama" placeholder="Masukkan nama kamu" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-school"></i> Kelas:</label>
+          <input type="text" id="kelas" placeholder="Contoh: 8-B" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-note-sticky"></i> Catatan (Opsional):</label>
+          <input type="text" id="catatan" placeholder="Contoh: Jangan pakai es / pedas">
+        </div>
+        <button type="submit" class="btn-submit">
+          <i class="fa-solid fa-paper-plane"></i> Kirim Pesanan (Pre-Order)
+        </button>
+      </form>
+    </section>
+
+    <!-- Bukti Nota & Tombol Batalkan Pesanan -->
+    <section id="nota-section" class="card nota-card" style="display: none;">
+      <h2><i class="fa-solid fa-receipt"></i> Bukti Pesanan Berhasil!</h2>
+      <p style="font-size: 0.75rem; color: #888; margin-bottom: 8px;">Screenshot bukti ini untuk ditunjukkan saat pengambilan.</p>
+      <div id="detail-nota"></div>
+      
+      <!-- Tombol Batalkan Pesanan -->
+      <button onclick="batalkanPesananAktif()" style="width: 100%; margin-top: 14px; padding: 10px; background: rgba(255, 77, 77, 0.2); color: #ff4d4d; border: 1px solid #ff4d4d; border-radius: 8px; font-weight: bold; cursor: pointer;">
+        <i class="fa-solid fa-ban"></i> Batalkan Pesanan Ini
+      </button>
+    </section>
+
+  </main>
+
+  <footer class="footer-link">
+    <a href="Admin.html">Login Penjual (Admin)</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
